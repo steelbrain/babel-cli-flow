@@ -25,6 +25,7 @@ module.exports = function (commander, filenames) {
     }
 
     outputFileSync(dest, data.code);
+    outputFileSync(`${dest}.flow`, data.originalSource);
     util.chmod(src, dest);
 
     util.log(src + " -> " + dest);

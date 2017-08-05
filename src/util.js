@@ -46,7 +46,10 @@ export function transform(filename, code, opts) {
 export function compile(filename, opts) {
   try {
     const code = fs.readFileSync(filename, "utf8");
-    return transform(filename, code, opts);
+    return {
+      originalSource: code,
+      ...transform(filename, code, opts)
+    };
   } catch (err) {
     if (commander.watch) {
       console.error(toErrorStack(err));

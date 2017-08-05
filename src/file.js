@@ -79,6 +79,7 @@ module.exports = function (commander, filenames, opts) {
       }
 
       fs.writeFileSync(commander.outFile, result.code);
+      fs.writeFileSync(`${commander.outFile}.flow`, result.originalSource);
     } else {
       process.stdout.write(result.code + "\n");
     }
