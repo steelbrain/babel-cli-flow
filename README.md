@@ -1,5 +1,7 @@
 # Babel-CLI-Flow
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/steelbrain/babel-cli-flow.svg)](https://greenkeeper.io/)
+
 Babel-CLI-Flow is a fork of the Babel CLI v6.24.1. No changes have been made other than that it also saves the contents of the source file with a `.flow` extension
 
 ## Usage
