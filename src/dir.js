@@ -5,6 +5,20 @@ const util           = require("./util");
 const fs             = require("fs");
 
 module.exports = function (commander, filenames) {
+  function linkFlowSource(src, dest, originalSource) {
+    let flowDestPath = `${dest}.flow`
+    let realPath
+    try {
+      realPath = fs.readlinkSync(flowDestPath)
+    } catch (_) {}
+    if (realPath !== src) {
+      try {
+        fs.unlinkSync(flowDestPath)
+      } catch (_) {}
+      fs.linkSync(src, flowDestPath)
+    }
+  }
+
   function write(src, relative) {
     // remove extension and then append back on .js
     relative = relative.replace(/\.(\w*?)$/, "") + ".js";
@@ -25,7 +39,7 @@ module.exports = function (commander, filenames) {
     }
 
     outputFileSync(dest, data.code);
-    outputFileSync(`${dest}.flow`, data.originalSource);
+    linkFlowSource(src, dest, data.originalSource)
     util.chmod(src, dest);
 
     util.log(src + " -> " + dest);
