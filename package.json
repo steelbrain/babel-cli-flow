@@ -2,7 +2,6 @@
   "name": "babel-cli-flow",
   "version": "1.0.0",
   "description": "Babel-CLI fork that also saves source files with .flow extension",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/steelbrain/babel-cli-flow.git"
