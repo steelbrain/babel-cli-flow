@@ -1,5 +1,7 @@
 # Babel-CLI-Flow
 
+### This package has been depreciated in favor of [`sb-babel-cli`](https://www.npmjs.com/package/sb-babel-cli)
+
 Babel-CLI-Flow is a fork of the Babel CLI v6.24.1. No changes have been made other than that it also saves the contents of the source file with a `.flow` extension. This utility creates a hard link for files so if the source `.flow` files are modified, the same changes will also be applied to the source ones (except deleting, the real source files will not be deleted when you delete the linked `.flow` ones).
 
 ## Usage
